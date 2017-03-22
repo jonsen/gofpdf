@@ -2,19 +2,16 @@ package gofpdf
 
 import (
 	"bytes"
-	"fmt"
+	//"fmt"
 )
 
 var (
 	m0 = []string{"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"}
 	m1 = []string{"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"}
 	m2 = []string{"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"}
-	m3 = []string{"", "M", "MM", "MMM", "I̅V̅",
-		"V̅", "V̅I̅", "V̅I̅I̅", "V̅I̅I̅I̅", "I̅X̅"}
-	m4 = []string{"", "X̅", "X̅X̅", "X̅X̅X̅", "X̅L̅",
-		"L̅", "L̅X̅", "L̅X̅X̅", "L̅X̅X̅X̅", "X̅C̅"}
-	m5 = []string{"", "C̅", "C̅C̅", "C̅C̅C̅", "C̅D̅",
-		"D̅", "D̅C̅", "D̅C̅C̅", "D̅C̅C̅C̅", "C̅M̅"}
+	m3 = []string{"", "M", "MM", "MMM", "I̅V̅", "V̅", "V̅I̅", "V̅I̅I̅", "V̅I̅I̅I̅", "I̅X̅"}
+	m4 = []string{"", "X̅", "X̅X̅", "X̅X̅X̅", "X̅L̅", "L̅", "L̅X̅", "L̅X̅X̅", "L̅X̅X̅X̅", "X̅C̅"}
+	m5 = []string{"", "C̅", "C̅C̅", "C̅C̅C̅", "C̅D̅", "D̅", "D̅C̅", "D̅C̅C̅", "D̅C̅C̅C̅", "C̅M̅"}
 	m6 = []string{"", "M̅", "M̅M̅", "M̅M̅M̅"}
 )
 
@@ -83,7 +80,6 @@ func (f *Fpdf) AheadPages(ff *Fpdf) {
 func (f *Fpdf) AppendPages(ff *Fpdf) *Fpdf {
 
 	for k := 1; k <= ff.page; k++ {
-		fmt.Println("toc ", k)
 		f.pages = append(f.pages, ff.pages[k])
 		f.pageLinks = append(f.pageLinks, ff.pageLinks[k])
 		f.page++
